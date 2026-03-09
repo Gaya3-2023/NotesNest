@@ -1,0 +1,41 @@
+.filterContainer{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+    gap:20px;
+
+}
+.categoryContainer{
+    display:flex;
+    margin-bottom: 20px;
+    gap:10px;
+    font-size: 20px; 
+}
+.categoryContainer button{
+    border:none;
+    cursor:pointer;
+    border-radius:20px;
+      
+}
+.categoryContainer button:hover{
+    background-color: beige;
+}
+.active{
+   font-size:medium;
+   color:black;
+   font-weight:bold;
+    
+}
+.inactive{
+   font-weight:normal;
+   color:black;
+   font-size:medium;
+}
+.viewBy{
+    display:flex;
+    justify-content: flex-end;
+    cursor:pointer;
+    height:20px;
+    width:25px;
+}

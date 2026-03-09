@@ -1,0 +1,16 @@
+.formbox{
+    border-radius:10px;
+    background-color: #f2f2f2;
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    gap:20px;   
+    
+}
+
+.formbox textarea{
+    border-radius:5px;
+    border: 1px solid black;
+    padding: 10px;
+    font-size:16px;
+}

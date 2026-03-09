@@ -1,0 +1,14 @@
+.centerbody{
+    padding:10px;
+}
+.bodycontent{
+    display: grid;
+  grid-template-columns: 1fr;
+}
+@media(min-width:600px){
+    .bodycontent{
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap:20px;
+    }
+}
