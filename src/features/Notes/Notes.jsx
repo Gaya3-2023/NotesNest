@@ -30,7 +30,7 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
     },[currentPage,totalPages,navigate]);
     let message='';
     let noMatches= false;
-    if(searchNote) //searching 
+    if(searchNote) 
     {
       noMatches =true; 
       message="No Matching Note found"
