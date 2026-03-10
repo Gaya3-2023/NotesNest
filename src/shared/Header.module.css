@@ -1,0 +1,49 @@
+.title {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background-color: rgb(205, 233, 161);
+  padding:20px;
+  font-style: italic;
+  font-family:'Courier New', Courier, monospace
+}
+.nav{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.active{
+ color:rgb(128, 128, 128);
+}
+.inactive{
+  color:black;
+}
+
+.searchstyle{
+  background-color: white;
+  width:250px;
+  height:auto;
+  display:flex; 
+  margin:auto;
+  padding:10px;
+  border-radius: 10%;
+
+}
+
+.img{
+  width:20px;
+}
+.inputbox{
+  border:none;
+  outline:none;
+  padding-left:10px;
+
+}
+.clearbutton{
+ border:none;
+ background-color: white; 
+ cursor:pointer;
+  }

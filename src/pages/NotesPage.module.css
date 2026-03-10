@@ -1,0 +1,35 @@
+.noteform{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+.notesdisplay{
+    padding:50px;
+}
+.categoryContainer{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:20px; 
+    font-size: 20px; 
+}
+.categoryContainer button{
+    border:none;
+    cursor:pointer;
+    border-radius:20px;
+      
+}
+.categoryContainer button:hover{
+    background-color: beige;
+}
+.active{
+   font-size:medium;
+   color:black;
+   font-weight:bold;
+    
+}
+.inactive{
+   font-weight:normal;
+   color:black;
+   font-size:medium;
+}

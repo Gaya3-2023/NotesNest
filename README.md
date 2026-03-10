@@ -1,16 +1,51 @@
-# React + Vite
+# NotesNest
+# Description:
+NotesNest is a note-taking web application that helps users quickly write down and organize their ideas, thoughts, and important notes.In this app, users can create notes by adding a category, title, and decription. This helps keep notes organized and easy to find. Users can also search for notes, filter them by category, edit notes when needed, or delete notes that are no longer useful.
+Notes can be sorted from newest to oldest or oldest to newest.
+All notes are stored in the browser using local storage, so the data stays saved even if the page is refreshed.
+This project was built using React to practice:
+Component-based design
+React hooks
+Routing
+State management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Installation:
+   ### Clone the repository:
+1. Open GitHub repository in your browser. 
 
-Currently, two official plugins are available:
+2. Click the "Code" button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. Select HTTPS and clone the repository link
 
-## React Compiler
+4. Open your terminal and navigate to the directory you want to run the project and type the below
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+     git clone https://github.com/Gaya3-2023/NotesNest.git
 
-## Expanding the ESLint configuration
+ ### To start the development server:
+1. Navigate to the project directory using the command : cd NotesNest
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Install the dependencies:  npm install
+
+3. Start the server : npm run dev
+
+# How to run:
+
+Once you started the server,open your browser and type 'http://localhost:5173/' 
+
+# How to use:
+1. Add a new note by entering category,title and description. 
+
+2. View all your saved notes.
+
+3. Filter notes by category.
+
+4. Edit notes if you need to update them.
+
+5. Delete notes that you don't need anymore.
+
+6. Sort notes based on date by New to Old or Old to New
+
+7. Search the notes 
+
+All notes are automatically saved in your browser.
+
