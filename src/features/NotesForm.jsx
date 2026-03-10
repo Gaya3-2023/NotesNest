@@ -2,7 +2,6 @@ import {useRef,useState} from 'react';
 import styles from './NotesForm.module.css';
 import FormCommonField from '../shared/FormCommonField';
 
-
 export default function NotesForm({addNote,categories,noteTitle,isSaving}){
     let  initialState = { id:'', category:'',title:'',description:'',date:''};
     const [workingNote,setWorkingNote] = useState(initialState);
@@ -27,28 +26,23 @@ export default function NotesForm({addNote,categories,noteTitle,isSaving}){
         <>
         <form onSubmit={handleAddNote} className={styles.formbox}>
              <FormCommonField type="input" label="Category" name="category" value={workingNote.category} onChange={handleChange}
-                              list="noteCategories" ref={noteCategoryInput}>
+                              list="noteCategories" maxLength="20" ref={noteCategoryInput}>
                                 <datalist id="noteCategories">
                       {categories.map((category) => (category !== "All" ? <option key={category} value={category}/> : ''))}
-                      
-              </datalist> 
+                                </datalist> 
               </FormCommonField>  
               <FormCommonField type="input" label="Title" name="title" value={workingNote.title} onChange={handleChange}
-                              list="noteTitles">
-                                <datalist id="noteTitles">{noteTitle.map((title) => (<option key={title} value={title}/>))}
-                                 </datalist> 
+                              list="noteTitles" maxLength="50">
+                              <datalist id="noteTitles">{noteTitle.map((title) => (<option key={title} value={title}/>))}
+                               </datalist> 
               </FormCommonField>  
                <FormCommonField type="textarea" label="Description" name="description" value={workingNote.description} onChange={handleChange}
                              rows="10" maxLength="300">
                                 
               </FormCommonField>  
                <input type="submit" value= {isSaving ? "Saving..." : "Add Note"}
-            disabled = {!workingNote.category && !workingNote.title && !workingNote.description } />
-                                            
-           
-        </form>
-
-        
+            disabled = {!workingNote.category && !workingNote.title && !workingNote.description } />                                   
+        </form> 
         </>
     )
 

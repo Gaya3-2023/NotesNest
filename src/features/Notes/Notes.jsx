@@ -21,7 +21,6 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
      const paginatedNotes = noteList.slice(indexOfFirstNote,indexOfFirstNote+itemsPerPage);
      const navigate=useNavigate();
     
-
      useEffect(() => {
       if(totalPages > 0 ){
          if(isNaN(currentPage) || currentPage < 1 ||  currentPage  > totalPages){
@@ -50,9 +49,7 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
           if (currentPage < totalPages) {
             setSearchParams({page: currentPage + 1});
         }
-    };
-      
-     
+    };     
    
     return(
         <>

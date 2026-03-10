@@ -5,10 +5,9 @@ import styles from './NoteCard.module.css';
 export default function NoteCard({selectedCategory,note,setIsEditing,removeNote}){
     return (
         <>
-        <div className={styles.noteheader}>
-                   {selectedCategory === 'All' && <h2>{note.category} </h2> }                  
-        </div>
-        <p className={styles.title}>{note.title}</p>
+       {selectedCategory === 'All' && (<><div className={styles.noteheader}>
+                             <h2>{note.category.charAt(0).toUpperCase() + note.category.slice(1)} </h2> </div></>) } 
+        <p className={styles.title}>{note.title.charAt(0).toUpperCase() + note.title.slice(1)}</p>
         <p className={styles.description}>{note.description}</p>
         <p className={styles.date}>{note.date} </p>
         <div className={styles.imagebutton}>

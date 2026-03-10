@@ -3,10 +3,8 @@ import { NavLink } from 'react-router';
 import searchIcon from '../assets/search.png';
 import {useEffect,useState} from 'react';
 
-
 export default function Header({title,searchNote,setSearchNote})
 {
-    //debounce it to avoid fetches on every keystroke
     const [localSearchString,setLocalSearchString] = useState(searchNote);
 
     useEffect(()=> {
@@ -19,7 +17,6 @@ export default function Header({title,searchNote,setSearchNote})
 
         },[setSearchNote,localSearchString]);
     
-
     return(
         <>
         <div className={styles.title}>
@@ -33,18 +30,11 @@ export default function Header({title,searchNote,setSearchNote})
 
                        {localSearchString && <button type="button" 
                         onClick={()=> { setSearchNote('');setLocalSearchString('')}} className={styles.clearbutton}>x</button>}
-                            
-                </div>     
-                       
-            <NavLink to ={"/"} className={({ isActive }) => isActive ? styles.active: styles.inactive}>Home</NavLink>
-            <NavLink to={"/about"} className={({ isActive }) => isActive ? styles.active: styles.inactive}>About</NavLink>           
-            
-        </nav>
-                 
-         </div>   
-         
-            
-        
+                </div> 
+                <NavLink to ={"/"} className={({ isActive }) => isActive ? styles.active: styles.inactive}>Home</NavLink>
+                <NavLink to={"/about"} className={({ isActive }) => isActive ? styles.active: styles.inactive}>About</NavLink>           
+            </nav>          
+         </div>          
         </>
     )
 }

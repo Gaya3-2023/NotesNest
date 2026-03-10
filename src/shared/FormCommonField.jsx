@@ -11,9 +11,10 @@ export default function FormCommonField({label,name,value,onChange,type,list,row
     return(
         <>
         <StyledDiv>
-         {label && <label htmlFor={name}>{label} {label === "Description" ? <small>(max {maxLength})</small>: ''} </label>}
+         {label && <label htmlFor={name}>{label} {<small>(up to {maxLength} chars)</small>} </label>}
          { type === "textarea" ? (<textarea id={name} name={name} value={value} onChange={onChange} rows={rows} required />)
-                             : (<><StyledInput id={name} name={name} value={value} onChange={onChange} list={list} ref={ref} required/> {children}
+                             : (<><StyledInput id={name} name={name} value={value} onChange={onChange}
+                                              list={list} ref={ref} maxLength={maxLength} required/> {children}
                              </>
                              )}
          </StyledDiv>

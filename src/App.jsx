@@ -22,7 +22,7 @@ function App() {
   const currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
   const date = `${currentDate.getMonth()+1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentTime}`; 
   const [noteList,setNoteList] = useState([]);   
-   const location = useLocation();
+  const location = useLocation();
  
   const title = useMemo(() => {
       if(location.pathname === "/"){
@@ -117,59 +117,52 @@ const filteredNoteList = useMemo(() => {
 
 
  async function removeNote(id){
-    try{
+    try{       
     const noteItems = noteList.filter((note) => note.id !== id);
     setNoteList(noteItems); 
-    await saveNotes(noteItems);    
-  }
-  catch(e){
-    setErrorMessage(`Failed to remove the note. ${e}`);
-  }
+    await saveNotes(noteItems);   
+    }
+    catch(e){
+      setErrorMessage(`Failed to remove the note. ${e}`);
+    }
   }
 
-  async function updateNote(updatedNote){
+ async function updateNote(updatedNote){
     try{      
-      const updatedNotes = noteList.map(note=> (note.id === updatedNote.id ? {...updatedNote,date} : note));
-    setNoteList(updatedNotes);
-    await saveNotes(updatedNotes);
-   
+     const updatedNotes = noteList.map(note=> (note.id === updatedNote.id ? {...updatedNote,date} : note));
+     setNoteList(updatedNotes);
+     await saveNotes(updatedNotes);  
     }
     catch(e){
       setErrorMessage(`Failed to update the note. ${e}`);
     }
-  }
- 
+  } 
 
  return (
     <>    
        <div className={styles.header}>
        <Header title={title} searchNote={searchNote} setSearchNote={setSearchNote} /> 
-         </div>
+       </div>
        <div className={styles.bodycontent}>          
        <Routes>
          <Route path="/" element={<>  
                       <NotesPage addNote={addNote} categories={categories} noteTitle={noteTitle} isSaving={isSaving}
-           selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} searchNote={searchNote}
-           filteredNoteList={filteredNoteList} removeNote={removeNote}  
-           isLoading={isLoading} updateNote={updateNote} 
-           viewBy={viewBy} setViewBy={setViewBy}
-           setErrorMessage={setErrorMessage} errorMessage={errorMessage}/>
+                        selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} searchNote={searchNote}
+                        filteredNoteList={filteredNoteList} removeNote={removeNote}  
+                        isLoading={isLoading} updateNote={updateNote} 
+                        viewBy={viewBy} setViewBy={setViewBy}
+                        setErrorMessage={setErrorMessage} errorMessage={errorMessage}/>
                      </>
                     }/>
          <Route path="/about" element={ <About/>}/>
-         <Route path="/*" element={<NotFound/>}/>            
-         
+         <Route path="/*" element={<NotFound/>}/>           
        </Routes>
         {errorMessage && <ErrorComponent errorMessage={errorMessage} setErrorMessage={setErrorMessage} 
-                                         setSearchNote={setSearchNote} />} 
-    
+                                         setSearchNote={setSearchNote} />}  
        
       </div>
-       <Footer/>
-      
-        
+       <Footer/>        
     </>
   )
 }
-
-export default App
+export default App;

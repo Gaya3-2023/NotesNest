@@ -9,5 +9,5 @@ body{
   
 }
 .fullWidth{
-  grid-column: 1/-1; /*Span all columns of the grid*/
+  grid-column: 1/-1; 
 }

@@ -1,7 +1,6 @@
 import Notes from '../features/Notes/Notes.jsx';
 import NotesForm from '../features/NotesForm.jsx';
 import styles from './NotesPage.module.css';
-/*import NotesFilter from '../features/Notes/NotesFilter/NotesFilter.jsx'; */
 
 export default function NotesPage({
     addNote,categories,noteTitle,isLoading,isSaving,setSelectedCategory,
@@ -12,10 +11,7 @@ export default function NotesPage({
            <div className={styles.noteform}>                                 
                 <NotesForm addNote={addNote} categories={categories} noteTitle={noteTitle} isSaving={isSaving}/> 
             </div>           
-            <div className={styles.notesdisplay}>  
-               {/*} <NotesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
-                             categories={categories} viewBy={viewBy} setViewBy={setViewBy}/> */}
-                
+            <div className={styles.notesdisplay}>                               
                 <Notes noteList={filteredNoteList} removeNote={removeNote} 
                        categories={categories} noteTitle={noteTitle}
                        isLoading={isLoading} updateNote={updateNote}

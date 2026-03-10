@@ -1,7 +1,6 @@
 # NotesNest
 # Description:
-NotesNest is a simple note-taking web application that helps users quickly write down and organize their ideas, thoughts, and important notes.
-In this app, users can create notes by adding a category, title, and decription. This helps keep notes organized and easy to find. Users can also search for notes, filter them by category, edit notes when needed, or delete notes that are no longer useful.
+NotesNest is a note-taking web application that helps users quickly write down and organize their ideas, thoughts, and important notes.In this app, users can create notes by adding a category, title, and decription. This helps keep notes organized and easy to find. Users can also search for notes, filter them by category, edit notes when needed, or delete notes that are no longer useful.
 Notes can be sorted from newest to oldest or oldest to newest.
 All notes are stored in the browser using local storage, so the data stays saved even if the page is refreshed.
 This project was built using React to practice:
@@ -22,8 +21,8 @@ State management
 
      git clone https://github.com/Gaya3-2023/NotesNest.git
 
- ### To Start the development server:
-1. Navigate to the project directory using the command : cd NoteNest
+ ### To start the development server:
+1. Navigate to the project directory using the command : cd NotesNest
 
 2. Install the dependencies:  npm install
 
@@ -38,11 +37,15 @@ Once you started the server,open your browser and type 'http://localhost:5173/'
 
 2. View all your saved notes.
 
-3. Search and filter notes by category.
+3. Filter notes by category.
 
 4. Edit notes if you need to update them.
 
 5. Delete notes that you don't need anymore.
+
+6. Sort notes based on date by New to Old or Old to New
+
+7. Search the notes 
 
 All notes are automatically saved in your browser.
 
