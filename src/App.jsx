@@ -75,7 +75,7 @@ const filteredNoteList = useMemo(() => {
 
   let filtered;
   if(selectedCategory === "All") {
-    filtered=noteList;      
+    filtered=[...noteList];      
   }
   else{
     filtered = noteList.filter((note) => note.category.toLowerCase() === selectedCategory.toLowerCase())       
