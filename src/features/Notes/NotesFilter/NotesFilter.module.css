@@ -38,4 +38,10 @@
     cursor:pointer;
     height:20px;
     width:25px;
+    gap:10px;
+}
+.viewBy button{
+   border:none;
+   cursor:pointer;
+   background-color: beige;
 }

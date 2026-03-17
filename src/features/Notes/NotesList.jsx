@@ -3,7 +3,7 @@ import {useState} from 'react';
 import FormCommonField from '../../shared/FormCommonField';
 import NoteCard from './NoteCard';
 
-export default function NotesList({note,removeNote,updateNote,categories,noteTitle,selectedCategory}){
+export default function NotesList({note,removeNote,updateNote,categories,noteTitle,selectedCategory,togglePinEvent}){
   
     const [isEditing,setIsEditing] = useState(false);
     const [workingNoteList,setWorkingNoteList] = useState(note);
@@ -42,7 +42,8 @@ export default function NotesList({note,removeNote,updateNote,categories,noteTit
              </> ) : ( 
                 <>
                  <NoteCard note={note} selectedCategory={selectedCategory} 
-                             setIsEditing={setIsEditing} removeNote={removeNote}/>
+                             setIsEditing={setIsEditing} removeNote={removeNote}
+                             togglePinEvent={togglePinEvent}/>
                                           </>
                 )}
              </div>

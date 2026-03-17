@@ -10,7 +10,8 @@ const StyledDiv = styled.div`text-align:center`;
 
 
 export default function Notes({noteList,removeNote,isLoading,updateNote,searchNote,categories,
-                               noteTitle,selectedCategory,setSelectedCategory,viewBy,setViewBy}){
+                               noteTitle,selectedCategory,setSelectedCategory,viewBy,setViewBy,togglePinEvent,
+                               viewPinnedNotes,setViewPinnedNotes}){
 
          
      const [searchParams,setSearchParams] = useSearchParams();
@@ -35,6 +36,10 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
       noMatches =true; 
       message="No Matching Note found"
     }
+    else if(viewPinnedNotes)
+    {
+      message ="No Pinned Note Found"
+    }
     else{
         message="No Notes Yet. Notes you added will appear here"
     }
@@ -55,21 +60,29 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
         <>
         {
           (isLoading ? <p>Loading Notes...</p> : (
-            (noteList.length === 0 ) ? 
+            (noteList.length === 0 ) && !viewPinnedNotes ? 
                 (<><StyledDiv>
                       { !noMatches ? 
                            <img src={notesimg} alt="General Notes image" width='150px' height='150px'/> : ''}
                              <p>{message}</p></StyledDiv></>)
                             : 
+                           ( ((noteList.length === 0) && viewPinnedNotes ) ? (<> <NotesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
+                                           categories={categories} viewBy={viewBy} setViewBy={setViewBy} 
+                                             setViewPinnedNotes={setViewPinnedNotes}/>  
+                                              <StyledDiv><p>{message}</p></StyledDiv> 
+                                             </>)
+                                :             
                             (<>
-                              <NotesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
-                                           categories={categories} viewBy={viewBy} setViewBy={setViewBy}/>         
+                             <NotesFilter selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
+                                           categories={categories} viewBy={viewBy} setViewBy={setViewBy} 
+                                             setViewPinnedNotes={setViewPinnedNotes}/>         
                               <div className={styles.notebox}>
                                     {paginatedNotes.map(note => 
                                              <NotesList key={note.id} note={note} 
                                                   updateNote={updateNote} removeNote={removeNote}
                                                   categories={categories} noteTitle={noteTitle}
-                                                  selectedCategory={selectedCategory}/>)}                                            
+                                                  selectedCategory={selectedCategory}
+                                                  togglePinEvent={togglePinEvent}/>)}                                            
                               </div>
                               <div className={styles.paginationControls}>
                                 <button disabled={currentPage === 1} onClick={handlePreviousPage}>Previous</button>
@@ -78,6 +91,7 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
                               </div> </> )
               ) 
             )
+          )
           }
         </>
     )

@@ -58,3 +58,16 @@
     overflow-wrap: break-word;
     word-break: break-word;
 }
+
+.pinalign{
+    display:flex;
+    justify-content: flex-end;     
+     
+}
+.pinalign img{
+    width:20px;
+    height: 20px;
+    border:none;
+   
+}
+

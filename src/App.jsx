@@ -18,6 +18,7 @@ function App() {
   const [searchNote,setSearchNote] = useState('');
   const [selectedCategory,setSelectedCategory] = useState("All");
   const [viewBy,setViewBy] = useState("New to Old");  
+  const [viewPinnedNotes,setViewPinnedNotes] = useState(false);
   const currentDate = new Date();
   const currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
   const date = `${currentDate.getMonth()+1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentTime}`; 
@@ -100,15 +101,20 @@ const filteredNoteList = useMemo(() => {
         }
       });
 
+   if(viewPinnedNotes){
+    filtered = noteList.filter((note) => note.pinned)
+   } 
+   
+
      
   return filtered;      
 
-},[noteList,selectedCategory,searchNote,viewBy])
+},[noteList,selectedCategory,searchNote,viewBy,viewPinnedNotes])
 
 
  const addNote = useCallback(async ({category, title, description}) => {
   setIsSaving(true); 
-  const newNote = { category, title, description, id: Date.now(), date };
+  const newNote = { category, title, description, id: Date.now(), date,pinned:false };
   const updatedNotes = [...noteList,newNote];
   setNoteList(updatedNotes);
   await saveNotes(updatedNotes);
@@ -138,6 +144,15 @@ const filteredNoteList = useMemo(() => {
     }
   } 
 
+    function togglePinEvent(id){
+    try{
+      setNoteList(prevNotes => prevNotes.map(note=> (note.id === id ? {...note,pinned:!note.pinned}: note)));
+    }
+    catch(e){
+      setErrorMessage(`Failed to update the pin. ${e}`);
+    }
+   }
+
  return (
     <>    
        <div className={styles.header}>
@@ -151,7 +166,9 @@ const filteredNoteList = useMemo(() => {
                         filteredNoteList={filteredNoteList} removeNote={removeNote}  
                         isLoading={isLoading} updateNote={updateNote} 
                         viewBy={viewBy} setViewBy={setViewBy}
-                        setErrorMessage={setErrorMessage} errorMessage={errorMessage}/>
+                        setErrorMessage={setErrorMessage} errorMessage={errorMessage}
+                        togglePinEvent={togglePinEvent}
+                        viewPinnedNotes={viewPinnedNotes} setViewPinnedNotes={setViewPinnedNotes}/>
                      </>
                     }/>
          <Route path="/about" element={ <About/>}/>

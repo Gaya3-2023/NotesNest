@@ -1,10 +1,17 @@
 import trashbinicon from '../../assets/trash.png';
 import editicon from '../../assets/pencil.png';
 import styles from './NoteCard.module.css';
+import pin from "../../assets/pin.png";
+import unpin from "../../assets/push-pin.png";
 
-export default function NoteCard({selectedCategory,note,setIsEditing,removeNote}){
+export default function NoteCard({selectedCategory,note,setIsEditing,removeNote,togglePinEvent}){
     return (
         <>
+         <div className={styles.pinalign}>
+          <button type="button" onClick={() => togglePinEvent(note.id)}>
+               {note.pinned ? <img src={pin} alt="pin"/> : <img src={unpin} alt="unpin"/>}</button>
+       
+       </div>
        {selectedCategory === 'All' && (<><div className={styles.noteheader}>
                              <h2>{note.category.charAt(0).toUpperCase() + note.category.slice(1)} </h2> </div></>) } 
         <p className={styles.title}>{note.title.charAt(0).toUpperCase() + note.title.slice(1)}</p>
