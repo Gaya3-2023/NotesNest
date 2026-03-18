@@ -3,7 +3,8 @@ import {useState} from 'react';
 import FormCommonField from '../../shared/FormCommonField';
 import NoteCard from './NoteCard';
 
-export default function NotesList({note,removeNote,updateNote,categories,noteTitle,selectedCategory,togglePinEvent}){
+export default function NotesList({note,removeNote,updateNote,categories,noteTitle,selectedCategory,togglePinEvent,
+                   colorList,updateNoteColor}){
   
     const [isEditing,setIsEditing] = useState(false);
     const [workingNoteList,setWorkingNoteList] = useState(note);
@@ -22,7 +23,7 @@ export default function NotesList({note,removeNote,updateNote,categories,noteTit
 
     return(
         <>
-        <div className={styles.notelist}>
+        <div className={styles.notelist} style={{backgroundColor:note.color}}>
             {isEditing ? ( <> 
               <form onSubmit={handleUpdate}>
                 <FormCommonField type="input" label="Category" name="category" value={workingNoteList.category} list="noteCategories"
@@ -43,7 +44,8 @@ export default function NotesList({note,removeNote,updateNote,categories,noteTit
                 <>
                  <NoteCard note={note} selectedCategory={selectedCategory} 
                              setIsEditing={setIsEditing} removeNote={removeNote}
-                             togglePinEvent={togglePinEvent}/>
+                             togglePinEvent={togglePinEvent}
+                             colorList={colorList} updateNoteColor={updateNoteColor}/>
                                           </>
                 )}
              </div>

@@ -5,7 +5,7 @@ import styles from './NotesPage.module.css';
 export default function NotesPage({
     addNote,categories,noteTitle,isLoading,isSaving,setSelectedCategory,
     selectedCategory,searchNote,filteredNoteList,removeNote,updateNote,viewBy,setViewBy,setErrorMessage,errorMessage,
-    togglePinEvent,viewPinnedNotes,setViewPinnedNotes})
+    togglePinEvent,viewPinnedNotes,setViewPinnedNotes,colorList,updateNoteColor})
 {
     return(
            <>
@@ -21,6 +21,7 @@ export default function NotesPage({
                        viewBy={viewBy} setViewBy={setViewBy}
                        togglePinEvent={togglePinEvent} 
                        viewPinnedNotes={viewPinnedNotes} setViewPinnedNotes={setViewPinnedNotes}
+                       colorList={colorList} updateNoteColor={updateNoteColor}
                         /> 
             </div> 
             </>

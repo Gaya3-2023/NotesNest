@@ -71,3 +71,24 @@
    
 }
 
+.cardheader{
+    display:flex;
+    justify-content: space-between;
+    padding:5px;
+}
+
+.colorpicker{
+    display:flex;
+    gap:5px;
+    margin-top: 8px;
+}
+.colorcircle{
+    width:15px;
+    height:15px;
+    border-radius: 50%;
+    cursor:pointer;
+    border:2px solid #ccc;
+    display:inline-block;
+}
+
+

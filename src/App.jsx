@@ -24,6 +24,8 @@ function App() {
   const date = `${currentDate.getMonth()+1}/${currentDate.getDate()}/${currentDate.getFullYear()} ${currentTime}`; 
   const [noteList,setNoteList] = useState([]);   
   const location = useLocation();
+  const colorList = ['#cdfc93','#ff7ecd','#71d7ff','#c381ff','#fff68b'];
+  
  
   const title = useMemo(() => {
       if(location.pathname === "/"){
@@ -114,7 +116,8 @@ const filteredNoteList = useMemo(() => {
 
  const addNote = useCallback(async ({category, title, description}) => {
   setIsSaving(true); 
-  const newNote = { category, title, description, id: Date.now(), date,pinned:false };
+  //const newNote = { category, title, description, id: Date.now(), date,pinned:false };
+  const newNote = { category, title, description, id: Date.now(), date,pinned :false,color:'#FFFAAE' };
   const updatedNotes = [...noteList,newNote];
   setNoteList(updatedNotes);
   await saveNotes(updatedNotes);
@@ -144,6 +147,11 @@ const filteredNoteList = useMemo(() => {
     }
   } 
 
+   function updateNoteColor(colors,id){
+    setNoteList(prevNotes => prevNotes.map(note => (note.id === id ? {...note,color:colors}: note)))      
+    
+  }
+
     function togglePinEvent(id){
     try{
       setNoteList(prevNotes => prevNotes.map(note=> (note.id === id ? {...note,pinned:!note.pinned}: note)));
@@ -168,7 +176,8 @@ const filteredNoteList = useMemo(() => {
                         viewBy={viewBy} setViewBy={setViewBy}
                         setErrorMessage={setErrorMessage} errorMessage={errorMessage}
                         togglePinEvent={togglePinEvent}
-                        viewPinnedNotes={viewPinnedNotes} setViewPinnedNotes={setViewPinnedNotes}/>
+                        viewPinnedNotes={viewPinnedNotes} setViewPinnedNotes={setViewPinnedNotes}
+                        colorList={colorList} updateNoteColor={updateNoteColor}/>
                      </>
                     }/>
          <Route path="/about" element={ <About/>}/>

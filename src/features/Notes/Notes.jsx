@@ -11,7 +11,7 @@ const StyledDiv = styled.div`text-align:center`;
 
 export default function Notes({noteList,removeNote,isLoading,updateNote,searchNote,categories,
                                noteTitle,selectedCategory,setSelectedCategory,viewBy,setViewBy,togglePinEvent,
-                               viewPinnedNotes,setViewPinnedNotes}){
+                               viewPinnedNotes,setViewPinnedNotes,colorList,updateNoteColor}){
 
          
      const [searchParams,setSearchParams] = useSearchParams();
@@ -82,7 +82,8 @@ export default function Notes({noteList,removeNote,isLoading,updateNote,searchNo
                                                   updateNote={updateNote} removeNote={removeNote}
                                                   categories={categories} noteTitle={noteTitle}
                                                   selectedCategory={selectedCategory}
-                                                  togglePinEvent={togglePinEvent}/>)}                                            
+                                                  togglePinEvent={togglePinEvent}
+                                                  colorList={colorList} updateNoteColor={updateNoteColor}/>)}                                            
                               </div>
                               <div className={styles.paginationControls}>
                                 <button disabled={currentPage === 1} onClick={handlePreviousPage}>Previous</button>
